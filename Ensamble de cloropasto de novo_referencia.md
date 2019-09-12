@@ -1,8 +1,10 @@
 ## Ensamble de cloropasto *de novo* y con referencia
-By Jose Rubén Montes & David S. Gernandt
+
+By Jose Rubén Montes & David S. Gernandt
 
 September 2019
-**Introducción**
+
+**Introducción**
 
 En este tutorial aprenderemos a ensamblar las secuencias completas de pinos piñoneros (Sección Parrya), con base en lecturas Illumina de 100-150 pb provenientes de datos Hyb-Seq (target enrichnment y genome skimming). El tutorial cuenta con dos partes, A y B. Eso significa que algunas secciones del tutorial de llevarán a cabo en Geneious (Parte A) y otras en la terminal o servidor (Parte B).
 
@@ -26,20 +28,24 @@ En este tutorial aprenderemos a ensamblar las secuencias completas de pinos piñ
 **1A. Importar lecturas R1 y R2 a Geneious**.
 
 Selecciona las siguiente ruta:
+
 `File > Import > From file > Descargas` 
 
 **2A. Parear secuencias R1 y R2**.
 
 Selecciona dos de las secuencias R1 y R2 por individuo: 
+
 `Sequence > Set Paired Reads > Pair By: Pairs of documents > Relative Orientation: Forward/Reverse (inward, e.g. Illumina paired end) > Insert Size: 250 > Read Technology: Illumina > Paired End` 
 
 **3A. Filtrar secuencias**.
 
 Selecciona el archivo pareado que generaste en el punto anterior:
+
 `Tools > Workflows > Trimm and Filter > Trimming: Remove new trimmed regions from sequences > Error Probability Limit: 0.01 > Trim 5' End, Trim 3' End > Filtering: Each sequence > Post-Trim > 50`
 
  
 **4A. Mapear al genoma de referencia**.
+
 `Tools > Align/Assemble > Map to Rerences > Data: "SELECCIONA TU REFERENCIA" > Method: Medium-Low Sensivity/Fast > Fine Tuning: Iterate up to 5 times > Trim Before Mapping: Do not trimm > Results: Save assembly report, used reads, in sub-folder, Include mates, contigs, consensus sequences`
 
 **5A. Exportar archivo mapeado**
@@ -264,4 +270,4 @@ In the alignment we can observe each of the regions that we had annotated and ve
 
 
 
-
+
