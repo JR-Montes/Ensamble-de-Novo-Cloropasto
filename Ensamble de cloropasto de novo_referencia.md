@@ -35,13 +35,19 @@ Selecciona las siguiente ruta:
 
 Selecciona dos de las secuencias R1 y R2 por individuo: 
 
-`Sequence > Set Paired Reads > Pair By: Pairs of documents > Relative Orientation: Forward/Reverse (inward, e.g. Illumina paired end) > Insert Size: 250 > Read Technology: Illumina > Paired End` 
+```
+Sequence > Set Paired Reads > Pair By: Pairs of documents > Relative Orientation: Forward/Reverse (inward, e.g. Illumina paired end) > Insert Size: 250 > Read Technology: Illumina > Paired End
+
+``` 
 
 **3A. Filtrar secuencias**.
 
 Selecciona el archivo pareado que generaste en el punto anterior:
 
-`Tools > Workflows > Trimm and Filter > Trimming: Remove new trimmed regions from sequences > Error Probability Limit: 0.01 > Trim 5' End, Trim 3' End > Filtering: Each sequence > Post-Trim > 50`
+```
+Tools > Workflows > Trimm and Filter > Trimming: Remove new trimmed regions from sequences > Error Probability Limit: 0.01 > Trim 5' End, Trim 3' End > Filtering: Each sequence > Post-Trim > 50
+
+```
 
  
 **4A. Mapear al genoma de referencia**.
@@ -54,7 +60,13 @@ Tools > Align/Assemble > Map to Rerences > Data: SELECCIONA TU REFERENCIA > Meth
 **5A. Exportar archivo mapeado**
 
 Vas a seleccionar uno de los archivos resultantes del mapeo `"Used Reads"` 
-`File > Export > Selected Document > File of type: FastQ Paired Files Forward/Reverse Compressed (Sanger scores) (*.fastq.gz)`
+
+
+```
+File > Export > Selected Document > File of type: FastQ Paired Files Forward/Reverse Compressed (Sanger scores) (*.fastq.gz)
+
+```
+
 
 **NOTA**: Esta acción generará dos archivos `UsedReads_1.fastq.gz` y `UsedReads_2.fastq.gz` los cuales debes descomprimir.
 
@@ -131,7 +143,10 @@ Grouping Sequences
 5. En la copia, seleccionar en la lista directamente todas las secuencias por debajo de 200 pb y borrarlas usando el botón derecho “Delete selected bases”.
 6. Mapear los scaffolds >200 pb a la referencia. Sigue la ruta:
  
- `Tools > Align/Assemble > Map to Referecne > Data: Reference sequence "SELECCIONA TU REFERENCIA" > Method: High Sensitivity/Medium, Fine Tuning: Iterate up to 5 times > Trim Before Mapping: Do not trimm > Results: Save assembly report, used reads, in sub-folder, Include mates, contigs, consensus sequences`
+```
+ Tools > Align/Assemble > Map to Referecne > Data: Reference sequence "SELECCIONA TU REFERENCIA" > Method: High Sensitivity/Medium, Fine Tuning: Iterate up to 5 times > Trim Before Mapping: Do not trimm > Results: Save assembly report, used reads, in sub-folder, Include mates, contigs, consensus sequences
+ 
+```
 
 
 - Nótese que si hubiéramos mapeado todos los scaffolds de SPADES hay muchos más segmentos pequeños en las áreas de sobrecobertura debidas al enriquecimiento de los dos loci de plastoma (izquierda). Al mapear sólo los scaffolds >200 pb conservamos los más importantes y reducimos el ruido en el área de sobrecobertura (derecha).
@@ -155,7 +170,7 @@ No uses la opción default `"merge"` cuando copies las anotaciones.
 
 **2A. Generar secuencia consenso**
 
-1.	Generar la secuencia consenso, utilizando la referencia para llenar las áreas sin cobertura:
+1.Generar la secuencia consenso, utilizando la referencia para llenar las áreas sin cobertura:
 
 `Tools > Generate Consensus Sequence > If no coverage call Ref > Trim to reference sequence`
 
@@ -166,7 +181,10 @@ No uses la opción default `"merge"` cuando copies las anotaciones.
 
 **1.** Ahora mapearemos las lecturas de P. aristata sobre la secuencia quimérica `"ArisChimeric1”` para tratar de ir rellenando las áreas que estaban sin cobertura y que actualmente tienen secuencia de P. strobus (con anotaciones Low 0). Es necesario regresar al archivo original de lecturas pareadas de P. aristata (filtradas, trimeadas y sin duplicados). Sigue la ruta:
 
-`Tools > Align/Assemble > Map to reference”, Data: "ArisChimeric1” > Method: Medium-Low Sensivity/Fast > Fine Tuning: Iterate up to 5 times > Trim Before Mapping: Do not trimm > Results: Save assembly report, used reads, in sub-folder, Include mates, contigs, consensus sequences`
+```
+Tools > Align/Assemble > Map to reference”, Data: "ArisChimeric1” > Method: Medium-Low Sensivity/Fast > Fine Tuning: Iterate up to 5 times > Trim Before Mapping: Do not trimm > Results: Save assembly report, used reads, in sub-folder, Include mates, contigs, consensus sequences
+
+```
 
 
 - Una vez generado el ensamble es necesario revisar cada una de las áreas con anotaciones _Low 0_ en color rojo, que señalaban las zonas donde no se mapeó ningún scaffold _de novo_. Se observa que algunas de las áreas previamente anotadas como “sin cobertura” han sido resueltas (imagen izquierda). En este caso en particular se observa que existen lecturas en esta zona que generarán ambigüedades (posiciones marcadas en color). 
@@ -204,9 +222,10 @@ En este ejemplo vemos cerca de 50,000 pb en la pantalla y es suficiente para ver
 **7**. La siguiente área corresponde a otro grupo de nucleótidos ambiguos pero aquí observamos que la referencia también tiene ambiguedades. Esto es porque existen más de un scaffold que mapeó esta región Observamos que esta zona cubre las posiciones alrededor de 81,600 pb y si regresamos al archivo en el que mapeamos los scaffolds efectivamente observamos dos scaffolds distintos cubriendo esa posición (imagen 1). Lo que haremos será anotar la zona problemática donde aún persisten ambigüedades para considerarla un gap. Manualmente seleccionamos las ambiguedades en la secuencia y con el botón derecho seleccionamos `Add Annotation` crar la anotación > Name `“NNNN”`, Tyoe `”Low”`, `”undirected”`, imagen 3).(right image).
 
 **8**. Ahora que todas las nucleótidos ambiguos antados como _Low 0_ han sido atendidod, podemos generar la secuencia consenso, est vez seleccionamos la opción 
+
 `"If no coverage call N"`.
 
-**9**. Cambiaremos el nombre de la secuencias de `"Contig2"` a `"ArisPlastome1"`. Antes de modificar esta secuencia generaremos una copia. Editaremos la copia para resolver las ambigüedades y las zonas problema. Substituye `"N" for all nucleotides annotated.
+**9**. Cambiaremos el nombre de la secuencias de `"Contig2"` a `"ArisPlastome1"`. Antes de modificar esta secuencia generaremos una copia. Editaremos la copia para resolver las ambigüedades y las zonas problema. Substituye `"N"` for all nucleotides annotated.
 
 **10**. En la copia de trabajo empezaremos por las anotaciones rosas `“repeat region”`. En el ejemplo, hay una `R` que debe reemplazarse por G. Selecciona directamente la `R` y con el teclado escribe una `G` en su lugar. Aparecerá un mensaje solicitando autorices la edición. Luego aparecerá la G y una anotación amarilla, que si pones el mouse encima verás que señala que allí hubo una edición y de qué tipo. Repite este paso con todas las anotaciones rosas. En el caso de grupos de varios nucleótidos primero inserta la secuencia correcta y después borra la secuencia incorrecta.
 
