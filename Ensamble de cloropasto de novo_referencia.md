@@ -49,6 +49,14 @@ Tools > Workflows > Trimm and Filter > Trimming: Remove new trimmed regions from
 
 ```
 
+**3A'. Eliminar duplicados**.
+
+Eliminar duplicados apartir del archvi filtrado.
+
+```
+Menu Sequence->Remove Duplicate Reads. Use default Kmer seed length 31.
+
+```
  
 **4A. Mapear al genoma de referencia**.
 
