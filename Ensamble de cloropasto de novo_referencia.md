@@ -46,7 +46,10 @@ Selecciona el archivo pareado que generaste en el punto anterior:
  
 **4A. Mapear al genoma de referencia**.
 
-`Tools > Align/Assemble > Map to Rerences > Data: SELECCIONA TU REFERENCIA > Method: Medium-Low Sensivity/Fast > Fine Tuning:Iterate up to 5 times > Trim Before Mapping:Do not trimm > Results:Save assembly:Report used reads:In sub-folder: Include mates: Contigs: consensus sequences`
+```
+Tools > Align/Assemble > Map to Rerences > Data: SELECCIONA TU REFERENCIA > Method: Medium-Low Sensivity/Fast > Fine Tuning:Iterate up to 5 times > Trim Before Mapping:Do not trimm > Results:Save assembly:Report used reads:In sub-folder: Include mates: Contigs: consensus sequences
+
+```
 
 **5A. Exportar archivo mapeado**
 
