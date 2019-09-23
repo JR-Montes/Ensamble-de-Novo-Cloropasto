@@ -1,6 +1,6 @@
 ## Ensamble de cloropasto *de novo* y con referencia
 
-By Jose Rubén Montes & David S. Gernandt
+By Aguirre-Dugua X.
 
 September 2019
 
